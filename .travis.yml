@@ -9,6 +9,7 @@ script:
     - docker run bradw73/react-test npm run test -- --coverage
 
 after_success:
+    # This list of all containers needed for this application
     - docker build -t bradw73/multi-client ./client
     - docker build -t bradw73/multi-nginx ./nginx
     - docker build -t bradw73/multi-server ./server
